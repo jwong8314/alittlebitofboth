@@ -18,12 +18,24 @@
   </url>
   
   <url>
+    <loc>https://jwong8314.github.io/alittlebitofboth/video/solo-bach/</loc>
+    <lastmod>1720-01-01T16:23:40+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jwong8314.github.io/alittlebitofboth/author/</loc>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>https://jwong8314.github.io/alittlebitofboth/categories/bach/</loc>
+    <lastmod>1845-01-01T16:23:40+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jwong8314.github.io/alittlebitofboth/categories/</loc>
+    <lastmod>1845-01-01T16:23:40+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -71,6 +83,12 @@
   <url>
     <loc>https://jwong8314.github.io/alittlebitofboth/video/</loc>
     <lastmod>1845-01-01T16:23:40+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jwong8314.github.io/alittlebitofboth/categories/violin/</loc>
+    <lastmod>1720-01-01T16:23:40+01:00</lastmod>
     <priority>0</priority>
   </url>
   
