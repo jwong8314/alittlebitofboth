@@ -123,9 +123,42 @@ on the official <br> <a href="https://github.com/Lednerb/bilberry-hugo-theme">Gi
 
 <p></p>
 
-        
-            <a href="/alittlebitofboth/code/installing-bilberry-theme/" class="more">Continue reading</a>
-        
+<p><strong>If you want to install this theme, follow these steps:</strong></p>
+
+<ul>
+<li>Install Hugo and create a new site:</li>
+</ul>
+
+<pre><code class="language-sh">hugo new site my-new-blog
+</code></pre>
+
+<ul>
+<li>Switch to your <code>theme</code> folder and import the latest version of the Bilberry Theme</li>
+</ul>
+
+<pre><code class="language-sh">cd my-new-blog/themes
+git clone https://github.com/Lednerb/bilberry-hugo-theme.git
+</code></pre>
+
+<ul>
+<li>Copy the example content to your new site</li>
+</ul>
+
+<pre><code class="language-sh">cp -r bilberry-hugo-theme/exampleSite/* ../
+</code></pre>
+
+<ul>
+<li>Test the installation</li>
+</ul>
+
+<pre><code class="language-sh">cd ../
+hugo server -D
+</code></pre>
+
+<ul>
+<li>Configure the <code>config.toml</code> file according to your needs</li>
+<li>Start blogging</li>
+</ul>
     
 </div>
 
