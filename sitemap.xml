@@ -3,6 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://jwong8314.github.io/alittlebitofboth/page/about-bilberry/</loc>
+    <lastmod>2017-11-01T13:18:45+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jwong8314.github.io/alittlebitofboth/page/github/</loc>
+    <lastmod>2017-11-01T13:17:56+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jwong8314.github.io/alittlebitofboth/video/muse-of-juilliard/</loc>
+    <lastmod>1845-01-01T16:23:40+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jwong8314.github.io/alittlebitofboth/author/</loc>
     <priority>0</priority>
   </url>
@@ -13,12 +28,49 @@
   </url>
   
   <url>
+    <loc>https://jwong8314.github.io/alittlebitofboth/categories/cello/</loc>
+    <lastmod>1845-01-01T16:23:40+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jwong8314.github.io/alittlebitofboth/author/lednerb/</loc>
+    <lastmod>2017-11-01T13:18:45+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jwong8314.github.io/alittlebitofboth/categories/music/</loc>
+    <lastmod>1845-01-01T16:23:40+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jwong8314.github.io/alittlebitofboth/</loc>
+    <lastmod>2017-11-01T13:18:45+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jwong8314.github.io/alittlebitofboth/page/</loc>
+    <lastmod>2017-11-01T13:18:45+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://jwong8314.github.io/alittlebitofboth/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jwong8314.github.io/alittlebitofboth/categories/video/</loc>
+    <lastmod>1845-01-01T16:23:40+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jwong8314.github.io/alittlebitofboth/video/</loc>
+    <lastmod>1845-01-01T16:23:40+01:00</lastmod>
     <priority>0</priority>
   </url>
   

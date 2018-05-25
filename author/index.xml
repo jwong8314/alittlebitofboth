@@ -9,5 +9,14 @@
 	<atom:link href="https://jwong8314.github.io/alittlebitofboth/author/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>Lednerb</title>
+      <link>https://jwong8314.github.io/alittlebitofboth/author/lednerb/</link>
+      <pubDate>Wed, 01 Nov 2017 13:18:45 +0100</pubDate>
+      
+      <guid>https://jwong8314.github.io/alittlebitofboth/author/lednerb/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
