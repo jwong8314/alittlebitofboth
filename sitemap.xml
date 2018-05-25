@@ -3,11 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://jwong8314.github.io/alittlebitofboth/audio/rick/</loc>
-    <lastmod>2017-11-01T16:12:47+01:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://jwong8314.github.io/alittlebitofboth/page/about-bilberry/</loc>
     <lastmod>2017-11-01T13:18:45+01:00</lastmod>
   </url>
@@ -15,6 +10,16 @@
   <url>
     <loc>https://jwong8314.github.io/alittlebitofboth/page/github/</loc>
     <lastmod>2017-11-01T13:17:56+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jwong8314.github.io/alittlebitofboth/video/post-malone/</loc>
+    <lastmod>2015-01-01T16:23:40+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jwong8314.github.io/alittlebitofboth/audio/rick/</loc>
+    <lastmod>1987-11-01T16:12:47+01:00</lastmod>
   </url>
   
   <url>
@@ -28,13 +33,8 @@
   </url>
   
   <url>
-    <loc>https://jwong8314.github.io/alittlebitofboth/video/post-malone/</loc>
-    <lastmod>1720-01-01T16:23:40+01:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://jwong8314.github.io/alittlebitofboth/audio/</loc>
-    <lastmod>2017-11-01T16:12:47+01:00</lastmod>
+    <lastmod>1987-11-01T16:12:47+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -45,13 +45,13 @@
   
   <url>
     <loc>https://jwong8314.github.io/alittlebitofboth/categories/bach/</loc>
-    <lastmod>1845-01-01T16:23:40+01:00</lastmod>
+    <lastmod>2015-01-01T16:23:40+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://jwong8314.github.io/alittlebitofboth/categories/</loc>
-    <lastmod>1845-01-01T16:23:40+01:00</lastmod>
+    <lastmod>2015-01-01T16:23:40+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -69,19 +69,19 @@
   
   <url>
     <loc>https://jwong8314.github.io/alittlebitofboth/tags/meme/</loc>
-    <lastmod>2017-11-01T16:12:47+01:00</lastmod>
+    <lastmod>1987-11-01T16:12:47+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://jwong8314.github.io/alittlebitofboth/categories/music/</loc>
-    <lastmod>2017-11-01T16:12:47+01:00</lastmod>
+    <lastmod>2015-01-01T16:23:40+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://jwong8314.github.io/alittlebitofboth/</loc>
-    <lastmod>2017-11-01T16:12:47+01:00</lastmod>
+    <lastmod>2017-11-01T13:18:45+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -93,31 +93,31 @@
   
   <url>
     <loc>https://jwong8314.github.io/alittlebitofboth/tags/rick/</loc>
-    <lastmod>2017-11-01T16:12:47+01:00</lastmod>
+    <lastmod>1987-11-01T16:12:47+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://jwong8314.github.io/alittlebitofboth/tags/</loc>
-    <lastmod>2017-11-01T16:12:47+01:00</lastmod>
+    <lastmod>1987-11-01T16:12:47+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://jwong8314.github.io/alittlebitofboth/categories/video/</loc>
-    <lastmod>1845-01-01T16:23:40+01:00</lastmod>
+    <lastmod>2015-01-01T16:23:40+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://jwong8314.github.io/alittlebitofboth/video/</loc>
-    <lastmod>1845-01-01T16:23:40+01:00</lastmod>
+    <lastmod>2015-01-01T16:23:40+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://jwong8314.github.io/alittlebitofboth/categories/violin/</loc>
-    <lastmod>1720-01-01T16:23:40+01:00</lastmod>
+    <lastmod>2015-01-01T16:23:40+01:00</lastmod>
     <priority>0</priority>
   </url>
   
