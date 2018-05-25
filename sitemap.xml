@@ -3,13 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://jwong8314.github.io/alittlebitofboth/page/about-bilberry/</loc>
+    <loc>https://jwong8314.github.io/alittlebitofboth/page/browse/</loc>
     <lastmod>2017-11-01T13:18:45+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://jwong8314.github.io/alittlebitofboth/page/github/</loc>
+    <loc>https://jwong8314.github.io/alittlebitofboth/page/home/</loc>
     <lastmod>2017-11-01T13:17:56+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jwong8314.github.io/alittlebitofboth/video/dear-evan-hansen/</loc>
+    <lastmod>2017-01-01T16:23:40+01:00</lastmod>
   </url>
   
   <url>
@@ -45,13 +50,13 @@
   
   <url>
     <loc>https://jwong8314.github.io/alittlebitofboth/categories/bach/</loc>
-    <lastmod>2015-01-01T16:23:40+01:00</lastmod>
+    <lastmod>2017-01-01T16:23:40+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://jwong8314.github.io/alittlebitofboth/categories/</loc>
-    <lastmod>2015-01-01T16:23:40+01:00</lastmod>
+    <lastmod>2017-01-01T16:23:40+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -62,7 +67,7 @@
   </url>
   
   <url>
-    <loc>https://jwong8314.github.io/alittlebitofboth/author/lednerb/</loc>
+    <loc>https://jwong8314.github.io/alittlebitofboth/author/justin-wong/</loc>
     <lastmod>2017-11-01T13:18:45+01:00</lastmod>
     <priority>0</priority>
   </url>
@@ -75,7 +80,7 @@
   
   <url>
     <loc>https://jwong8314.github.io/alittlebitofboth/categories/music/</loc>
-    <lastmod>2015-01-01T16:23:40+01:00</lastmod>
+    <lastmod>2017-01-01T16:23:40+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -105,19 +110,19 @@
   
   <url>
     <loc>https://jwong8314.github.io/alittlebitofboth/categories/video/</loc>
-    <lastmod>2015-01-01T16:23:40+01:00</lastmod>
+    <lastmod>2017-01-01T16:23:40+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://jwong8314.github.io/alittlebitofboth/video/</loc>
-    <lastmod>2015-01-01T16:23:40+01:00</lastmod>
+    <lastmod>2017-01-01T16:23:40+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://jwong8314.github.io/alittlebitofboth/categories/violin/</loc>
-    <lastmod>2015-01-01T16:23:40+01:00</lastmod>
+    <lastmod>2017-01-01T16:23:40+01:00</lastmod>
     <priority>0</priority>
   </url>
   
