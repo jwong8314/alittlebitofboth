@@ -1,327 +1,677 @@
-<!DOCTYPE html>
-<html>
-<title>A Little Bit of Both: Beauty Amidst Ordinary</title>
-<meta name="Description" content="Justin Wong's Personal Page">
-<meta name="Title" content="A Little Bit of Both">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
-<style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
-body, html {
-    height: 100%;
-    color: #777;
-    line-height: 1.8;
-}
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-/* Create a Parallax Effect */
-.bgimg-1, .bgimg-2, .bgimg-3 {
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+        <meta name="author" content="Lednerb">
+        <meta name="description" content="Bilberry Premium Theme for Hugo.">
+        <meta name="keywords" content="blog,personal,responsive,search,font awesome,pages,posts,multilingual,highlight.js,syntax highlighting,premium,shortcuts">
+        <meta name="generator" content="Hugo 0.40.3" />
 
-/* First image (Logo. Full height) */
-.bgimg-1 {
+        <link rel="icon" type="image/png" href="https://jwong8314.github.io/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="https://jwong8314.github.io/favicon-16x16.png" sizes="16x16">
 
-    background-image: url('ordinary/rockpile.jpg');
-    min-height: 100%;
-}
+        <link rel="stylesheet" href="/alittlebitofboth/blog.html/dist/theme.css">
 
-/* Second image (Portfolio) */
-.bgimg-2 {
-    background-image: url("ordinary/clock.png");
-    min-height: 400px;
-}
-
-/* Third image (Contact) */
-.bgimg-3 {
-    background-image: url("ordinary/piano.jpg");
-    min-height: 400px;
-}
-
-.w3-wide {letter-spacing: 10px;}
-.w3-hover-opacity {cursor: pointer;}
-
-/* Turn off parallax scrolling for tablets and phones */
-@media only screen and (max-device-width: 1024px) {
-    .bgimg-1, .bgimg-2, .bgimg-3 {
-        background-attachment: scroll;
-    }
-}
-</style>
-<body>
-
-<!-- Navbar (sit on top) -->
-<div class="w3-top">
-  <div class="w3-bar" id="myNavbar">
-    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
-      <i class="fa fa-bars"></i>
-    </a>
-    <a href="#home" class="w3-bar-item w3-button">HOME</a>
-    <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT</a>
-    <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-comment-alt"></i> BLOG</a>
-    <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PORTFOLIO</a>
-    <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
-      <i class="fa fa-search"></i>
-    </a>
-  </div>
-
-  <!-- Navbar on small screens -->
-  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-    <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">BLOG</a>
-    <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
-    <a href="#" class="w3-bar-item w3-button">SEARCH</a>
-  </div>
-</div>
-
-<!-- First Parallax Image with Logo Text -->
-<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
-  <div class="w3-display-middle" style="white-space:nowrap;">
-    <h1 class="center"><span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">A LITTLE<span class="w3-hide-small"> BIT OF BOTH</span> </span>
-    </h1>
-    <h2 class="center">
-      <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity"> BEAUTY<span class="w3-hide-small"> AMIDST ORDINARY</span> </span>
-    </h2>
-  </div>
-</div>
-
-<!-- Container (About Section) -->
-<div class="w3-content w3-container w3-padding-64" id="about">
-  <h3 class="w3-center">ABOUT THIS PAGE</h3>
-    <p>A Little Bit of Both: Beauty Amidst Ordinary exists less as a gold mine of creative content but rather as a carefully curated exhibit of curiosities and masterpieces. The inspiration for this page comes from <a href="http://www.more-onions.com"> more-onion </a> hosted by my namesake Justin Chang. Just as a sports commentator overlay a familiar narrating voice over the on-screen action, this website hopes to introduce visitors to novel appreciation of otherwise commonplace art. Thus while we value contextualizing commentary, I strive to keep the spotlight on the primary source whenever possible. In doing so, I hope you'll be inspired to adopt the mission of exploration as your own.    </p>
-      <h3 class="w3-center">ABOUT ME</h3>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.2.1/dist/instantsearch.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.2.1/dist/instantsearch-theme-algolia.min.css">
 
 
-  <div class="w3-row">
-    <div class="w3-col m6 w3-center w3-padding-large">
-      <p><b><i class="fa fa-user w3-margin-right"></i>Justin Wong</b></p><br>
-      <img src="ordinary/me.jpg" class="w3-round w3-image w3-hover-opacity" alt="Photo of Me" width="500" height="333">
-    </div>
+        
+            
+        
 
-    <!-- Hide this text on small devices -->
-    <div class="w3-col m6 w3-hide-small w3-padding-large">
-      <p>Welcome to my website. I'm Justin; my personal pronouns are 乍得, تشاد, and chad.  As a college student and a post-millennial, I enjoy long walks on the beach (searching for crabs) and occasionally cardio. Additionally, as a chorister in the Barnard Columbia choir, I have developed a deep appreciation for bouldering and pickup basketball. Most importantly, as someone who has watched Shutter Island, I obsess over the latest technological trends as well as deceptively elegant culinary masterpieces and intend to chronicle my latest adventures in the blog section of this page. The website also includes my story told through music commentary and an incomplete memoir. I hope you'll find the contents here within the boundaries of this webpage compelling and only occasionally aggravating. 
-      </p>
-      <p>
-        "And this is why I've changed my attitude towards apples, not through an act of will, but as a result of having seen and understood more."
-~Karl Ov Knausgaard
-      </p>
-    </div>
-      <p class="w3-center"><em>I love Oktavist performing Rachmaninov </em></p>
-      <p class="w3-center">
-    <iframe width="854" height="480" src="https://www.youtube.com/embed/zkJUioQ-zKs?start=1000" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        
+        <title>
+            
+                Ordinary Beauty | Music Commentary Blog
+            
+        </title>
+    </head>
+    <body class="bilberry-hugo-theme">
+        
+<nav class="permanentTopNav">
 
-  </p>
+    <div class="container">
+        <ul class="topnav">
+            
+                
+                    <li><a href="/alittlebitofboth/blog.html/page/about-bilberry/">About Bilberry</a></li>
+                
+            
+                
+                    <li><a href="https://github.com/Lednerb/bilberry-hugo-theme" target="_blank">Github</a></li>
+                
+            
+        </ul>
 
-  </div>
-  <p class="w3-large w3-center w3-padding-16">Reasons I Stay Alive:</p>
-  <p class="w3-wide"><i class="fa fa-heartbeat"></i>HUGS FROM FRIENDS</p>
-  <div class="w3-light-grey">
-    <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:90%">90%</div>
-  </div>
-  <p class="w3-wide"><i class="fa fa-laptop"></i> HINDLEY-MILNER TYPE INFERENCE</p>
-  <div class="w3-light-grey">
-    <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:85%">85%</div>
-  </div>
-  <p class="w3-wide"><i class="fa fa-crosshairs"></i>FADEAWAY JUMPSHOT</p>
-  <div class="w3-light-grey">
-    <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:75%">75%</div>
-  </div>
-</div>
+        
 
-<div class="w3-row w3-center w3-dark-grey w3-padding-16">
-  <div class="w3-quarter w3-section">
-    <span class="w3-xlarge">0+</span><br>
-    Posts
-  </div>
-  <div class="w3-quarter w3-section">
-    <span class="w3-xlarge">5+</span><br>
-    Projects Done
-  </div>
-  <div class="w3-quarter w3-section">
-    <span class="w3-xlarge">89+</span><br>
-    Hours Spent
-  </div>
-  <div class="w3-quarter w3-section">
-    <span class="w3-xlarge">150+</span><br>
-    Words Written
-  </div>
-</div>
-
-<!-- Second Parallax Image with Portfolio Text -->
-<div class="bgimg-2 w3-display-container w3-opacity-min">
-  <div class="w3-display-middle">
-    <span class="w3-xxlarge w3-text-white w3-wide">Portfolio</span>
-  </div>
-</div>
-
-<!-- Container (Portfolio Section) -->
-<div class="w3-content w3-container w3-padding-64" id="portfolio">
-  <h3 class="w3-center">MY LENS</h3>
-  <p class="w3-center"><em>Here are some of my latest photographs</em></p><br>
-
-  <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
-  <div class="w3-row-padding w3-center">
-    <div class="w3-col m3">
-      <img src="ordinary/wine.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Evening Homebrewed Mead">
-    </div>
-
-    <div class="w3-col m3">
-      <img src="ordinary/pitt.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Pitt Botanical Garden">
-    </div>
-
-    <div class="w3-col m3">
-      <img src="ordinary/columbia.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Columbia University">
-    </div>
-
-    <div class="w3-col m3">
-      <img src="ordinary/pear.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Poached Pears">
-    </div>
-  </div>
-
-  <div class="w3-row-padding w3-center w3-section">
-    <div class="w3-col m3">
-      <img src="ordinary/harpers.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Overlooking Harper's Ferry">
-    </div>
-
-    <div class="w3-col m3">
-      <img src="ordinary/hoegaarde.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Cold One with the Boys">
-    </div>
-
-    <div class="w3-col m3">
-      <img src="ordinary/lighthouse.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Portland Head Light, Maine">
-    </div>
-
-    <div class="w3-col m3">
-      <img src="ordinary/firework.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="New Year Eve, Penn's Landing">
-    </div>
-
-  </div>
-</div>
-
-<!-- Modal for full size images on click-->
-<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
-  <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
-  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-    <img id="img01" class="w3-image">
-    <p id="caption" class="w3-opacity w3-large"></p>
-  </div>
-</div>
-
-<!-- Third Parallax Image with Portfolio Text -->
-<div class="bgimg-3 w3-display-container w3-opacity-min">
-  <div class="w3-display-middle">
-     <span class="w3-xxlarge w3-text-white w3-wide">CONTACT</span>
-  </div>
-</div>
-
-<!-- Container (Contact Section) -->
-<div class="w3-content w3-container w3-padding-64" id="contact">
-  <!--<h3 class="w3-center">WHERE I WORK</h3>-->
-  <p class="w3-center"><em>I'd love your feedback!</em></p>
-
-  <div class="w3-row w3-padding-32 w3-section">
-    <!--<div class="w3-col m4 w3-container">
-       Add Google Maps --
-      <div id="googleMap" class="w3-round-large w3-greyscale" style="width:100%;height:400px;"></div>
-      
-    </div>-->
-    <div class="w3-col m12 w3-panel">
-      <!--<div class="w3-large w3-margin-bottom">
-        <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Colorado Springs, US<br>
-        <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: <br>
-        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: <br>
-      </div>-->
-      <p>Swing by for a cup of <i class="fa fa-coffee"></i>, or leave me a note:</p>
-      <form action="/action_page.php" target="_blank">
-        <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
-          <div class="w3-half">
-            <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
-          </div>
-          <div class="w3-half">
-            <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
-          </div>
+         <div id="search-box" class="search">
+            <i class="fa fa-search"></i>
+            <input id="search" type="text" placeholder="Search ...">
         </div>
-        <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
-        <button class="w3-button w3-black w3-right w3-section" type="submit">
-          <i class="fa fa-paper-plane"></i> SEND MESSAGE
-        </button>
-      </form>
+        
     </div>
-  </div>
+</nav>
+
+
+        <header>
+    <div class="container">
+        <div class="logo">
+            <a href="https://jwong8314.github.io/alittlebitofboth/blog.html" class="logo">
+                
+                    <img src="images/me.jpg" alt="">
+                
+
+                <span class="overlay"><i class="fa fa-home"></i></span>
+            </a>
+        </div>
+        <div class="titles">
+            <h3 class="title"><a href="https://jwong8314.github.io/alittlebitofboth/blog.html">Ordinary Beauty</a></h3>
+            
+                <span class="subtitle">Music Commentary Blog</span>
+            
+        </div>
+
+        
+        <div class="toggler permanentTopNav">
+        
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </div>
+    </div>
+</header>
+
+
+        <div class="main container">
+            
+    
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="/alittlebitofboth/blog.html/article/support-me-and-this-theme/">
+    <i class="fa fa-fw fa-pencil"></i>
+</a>
+
+<article class="default article">
+    
+    <div class="featured-image">
+        <a href="/alittlebitofboth/blog.html/article/support-me-and-this-theme/">
+            <img src="/alittlebitofboth/blog.html/images/patreon.png" alt="">
+        </a>
+    </div>
+
+
+    <div class="content">
+    <h3><a href="/alittlebitofboth/blog.html/article/support-me-and-this-theme/">Support Me and This Theme</a></h3>
+    <div class="meta">
+        <span class="date moment">2017-11-01</span>
+
+        
+
+        
+            <span class="author"><a href="/author/lednerb">Lednerb</a></span>
+        
+    </div>
+
+    
+        <p>Hey there!</p>
+
+<p>This Premium Theme is published under an open source license so you can use it for your blog. It took me more than 40 hours of work to create one of the best Hugo themes out there.</p>
+
+<p>If you enjoy this theme (and especially if you make money with your blog) and want to use it for your site, please consider a small or generous monthly support towards me so I can keep up supporting and maintaining this theme in the future.</p>
+
+<p>You don&rsquo;t want to use Patreon? Just write me a short mail and we&rsquo;ll find a solution:
+<strong><script type="text/javascript" language="javascript">
+<!--
+// Email obfuscator script 2.1 by Tim Williams, University of Arizona
+// Random encryption key feature coded by Andrew Moulden
+// This code is freeware provided these four comment lines remain intact
+// A wizard to generate this code is at http://www.jottings.com/obfuscator/
+{ coded = "q5ep@HpeNp7r.ep"
+  key = "chwYVt96OnuyrHsqfdCXiEKQNJD72UmoevAFkRTx4zZP0L5paGMjWgBI8S1bl3"
+  shift=coded.length
+  link=""
+  for (i=0; i<coded.length; i++) {
+    if (key.indexOf(coded.charAt(i))==-1) {
+      ltr = coded.charAt(i)
+      link += (ltr)
+    }
+    else {     
+      ltr = (key.indexOf(coded.charAt(i))-shift+key.length) % key.length
+      link += (key.charAt(ltr))
+    }
+  }
+document.write("<a href='mailto:"+link+"'>"+link+"</a>")
+}
+//-->
+</script><noscript>Sorry, you need Javascript on to email me.</noscript></strong></p>
+
+<div style="position:relative; height: 36px; overflow:hidden"><a href="https://www.patreon.com/bePatron?u=8214142" data-patreon-widget-type="become-patron-button">Become a Patron!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script></div>
+
+    
 </div>
 
-<!-- Footer -->
-<footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
-  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
-  <!--<div class="w3-xlarge w3-section">
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
-  </div>-->
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+    
+    
+    <div class="tags">
+        <i class="fa fa-tags"></i>
+        
+            <a href="/tags/patreon">Patreon</a>
+        
+            <a href="/tags/survival">Survival</a>
+        
+            <a href="/tags/income">Income</a>
+        
+            <a href="/tags/support">Support</a>
+        
+            <a href="/tags/say-thanks">Say Thanks!</a>
+        
+    </div>
+    
+
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="/alittlebitofboth/blog.html/gallery/my-trip-to-scotland/">
+    <i class="fa fa-fw fa-camera"></i>
+</a>
+
+<article class="gallery">
+    
+    <div class="flexslider">
+        <ul class="slides">
+        
+            <li><img src="/alittlebitofboth/blog.html/images/scotland5.jpg" /></li>
+        
+            <li><img src="/alittlebitofboth/blog.html/images/scotland1.jpg" /></li>
+        
+            <li><img src="/alittlebitofboth/blog.html/images/scotland2.jpg" /></li>
+        
+            <li><img src="/alittlebitofboth/blog.html/images/scotland3.jpg" /></li>
+        
+            <li><img src="/alittlebitofboth/blog.html/images/scotland4.jpg" /></li>
+        
+        </ul>
+    </div>
+    
+
+    <div class="content">
+    <h3><a href="/alittlebitofboth/blog.html/gallery/my-trip-to-scotland/">My Trip to Scotland</a></h3>
+    <div class="meta">
+        <span class="date moment">2017-11-01</span>
+
+        
+            <span class="categories">
+                
+                    <a href="/categories/travelling">Travelling</a>
+                
+                    <a href="/categories/holidays">Holidays</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="/author/lednerb">Lednerb</a></span>
+        
+    </div>
+
+    
+        In June 2017 I&rsquo;ve visited Scotland with my best friend for two weeks. We drove a lot through the beautiful countryside and saw a lot of different animals: cattle, deer, birds, dolphins, and sheep. Sheep everywhere!
+At one beautiful camping site, we saw cattle in fog in the very early morning and took a picture of it. The image now has the title &ldquo;Rindviehcher im Nebel&rdquo;, a quite funny German phrase that means cattle in the fog.
+
+        
+            <a href="/alittlebitofboth/blog.html/gallery/my-trip-to-scotland/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+    
+    <div class="tags">
+        <i class="fa fa-tags"></i>
+        
+            <a href="/tags/scotland">Scotland</a>
+        
+            <a href="/tags/glennfinnan-viaduct">Glennfinnan Viaduct</a>
+        
+            <a href="/tags/eilean-donan-castle">Eilean Donan Castle</a>
+        
+    </div>
+    
+
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="/alittlebitofboth/blog.html/video/kilez-more-leben-und-tod-des-imperialismus/">
+    <i class="fa fa-fw fa-video-camera"></i>
+</a>
+
+<article class="video">
+    
+
+
+    
+        <div class="responsive-video youtube">
+            <iframe src="https://www.youtube-nocookie.com/embed/Yk_BI3ne0Ic?rel=0" frameborder="0" allowfullscreen></iframe>
+        </div>
+    
+    
+
+    <div class="content">
+    <h3><a href="/alittlebitofboth/blog.html/video/kilez-more-leben-und-tod-des-imperialismus/">Kilez More - Leben und Tod des Imperialismus</a></h3>
+    <div class="meta">
+        <span class="date moment">2017-11-01</span>
+
+        
+            <span class="categories">
+                
+                    <a href="/categories/video">Video</a>
+                
+                    <a href="/categories/music">Music</a>
+                
+                    <a href="/categories/politics">Politics</a>
+                
+            </span>
+        
+
+        
+    </div>
+
+    
+        <p>Kilez More is a great Austrian musician.
+Most of his songs have a political background and have amazing lyrics!</p>
+
+<p></p>
+
+        
+            <a href="/alittlebitofboth/blog.html/video/kilez-more-leben-und-tod-des-imperialismus/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="/alittlebitofboth/blog.html/audio/kilez-more-new-wolrd-order/">
+    <i class="fa fa-fw fa-music"></i>
+</a>
+
+<article class="audio">
+    
+
+
+    
+        <div class="responsive-audio spotify">
+            <iframe src="https://open.spotify.com/embed?uri=spotify%3atrack%3a0qDZPJGUALZC7vSahlekhu" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+        </div>
+    
+    
+    
+    
+
+    <div class="content">
+    <h3><a href="/alittlebitofboth/blog.html/audio/kilez-more-new-wolrd-order/">Kilez More - New World Order</a></h3>
+    <div class="meta">
+        <span class="date moment">2017-11-01</span>
+
+        
+            <span class="categories">
+                
+                    <a href="/categories/music">Music</a>
+                
+            </span>
+        
+
+        
+    </div>
+
+    
+        With the audio post type you can easily integrate a Spotify, SoundCloud, TuneIn or Mixcloud player to your post.
+If you don&rsquo;t want to embed sound but use a header image you can set it with the featuredImage option in your markdown file.
+
+        
+    
+</div>
+
+    
+    
+    <div class="tags">
+        <i class="fa fa-tags"></i>
+        
+            <a href="/tags/kilez-more">Kilez More</a>
+        
+            <a href="/tags/truth-rap">Truth Rap</a>
+        
+    </div>
+    
+
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="https://duckduckgo.com" target="_blank">
+    <i class="fa fa-fw fa-link"></i>
+</a>
+
+<article class="link">
+    
+    <a href="https://duckduckgo.com" target="_blank">
+        <h4>Duckduckgo.com</h4>
+        <p>A search engnine that respects your privacy.</p>
+
+    </a>
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="/alittlebitofboth/blog.html/quote/edward-snowden-privacy/">
+    <i class="fa fa-fw fa-quote-right"></i>
+</a>
+
+<article class="quote">
+    
+    <blockquote>
+        <p>Arguing that you don&rsquo;t care about the right to privacy because you have nothing to hide is no different than saying you don&rsquo;t care about free speech because you have nothing to say.</p>
+
+        <cite><a href="/author/edward-snowden">Edward Snowden</a></cite>
+    </blockquote>
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="/alittlebitofboth/blog.html/code/installing-bilberry-theme/">
+    <i class="fa fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h3><a href="/alittlebitofboth/blog.html/code/installing-bilberry-theme/">Installing Bilberry Theme</a></h3>
+    <div class="meta">
+        <span class="date moment">2017-11-01</span>
+
+        
+            <span class="categories">
+                
+                    <a href="/categories/code">Code</a>
+                
+                    <a href="/categories/tutorials">Tutorials</a>
+                
+            </span>
+        
+
+        
+            <span class="author"><a href="/author/lednerb">Lednerb</a></span>
+        
+    </div>
+
+    
+        <p>You will find all information to setup this theme with your hugo site
+on the official <br> <a href="https://github.com/Lednerb/bilberry-hugo-theme">Github Repository</a>.</p>
+
+<p></p>
+
+        
+            <a href="/alittlebitofboth/blog.html/code/installing-bilberry-theme/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+    
+    <div class="tags">
+        <i class="fa fa-tags"></i>
+        
+            <a href="/tags/hugo">Hugo</a>
+        
+            <a href="/tags/bilberry-theme">Bilberry Theme</a>
+        
+    </div>
+    
+
+
+</article>
+
+            
+        </div>
+    
+
+    
+    <div class="paginator">
+        
+
+        
+    </div>
+
+
+
+        </div>
+
+        <footer>
+    <div class="container">
+        <div class="recent-posts">
+            <strong>Latest posts</strong>
+                <ul>
+                
+                    <li>
+                        <a href="/alittlebitofboth/blog.html/article/support-me-and-this-theme/">Support Me and This Theme</a>
+                    </li>
+                
+                    <li>
+                        <a href="/alittlebitofboth/blog.html/gallery/my-trip-to-scotland/">My Trip to Scotland</a>
+                    </li>
+                
+                    <li>
+                        <a href="/alittlebitofboth/blog.html/video/kilez-more-leben-und-tod-des-imperialismus/">Kilez More - Leben und Tod des Imperialismus</a>
+                    </li>
+                
+                    <li>
+                        <a href="/alittlebitofboth/blog.html/audio/kilez-more-new-wolrd-order/">Kilez More - New World Order</a>
+                    </li>
+                
+                    <li>
+                        <a href="/alittlebitofboth/blog.html/link/duckduckgo/">Duckduckgo.com</a>
+                    </li>
+                
+                    <li>
+                        <a href="/alittlebitofboth/blog.html/quote/edward-snowden-privacy/">Edward Snowden About Privacy</a>
+                    </li>
+                
+                    <li>
+                        <a href="/alittlebitofboth/blog.html/code/installing-bilberry-theme/">Installing Bilberry Theme</a>
+                    </li>
+                
+                </ul>
+        </div>
+
+        <div class="categories">
+            <strong>Categories</strong>
+
+            
+                <ul>
+                
+                    <li>
+                        <a href="/categories/code">Code (1)</a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories/holidays">Holidays (1)</a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories/music">Music (2)</a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories/politics">Politics (1)</a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories/privacy">Privacy (2)</a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories/society">Society (1)</a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories/travelling">Travelling (1)</a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories/tutorials">Tutorials (1)</a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories/video">Video (1)</a>
+                    </li>
+                
+                </ul>
+            
+        </div>
+
+        <div class="social-media">
+            <strong>Social media</strong>
+
+            
+                <a href="https://www.facebook.com/jay.wong8314" target="_blank"><i class="fa fa-facebook"></i></a>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        </div>
+    </div>
 </footer>
- 
-<!-- Add Google Maps -->
-<script>
-function myMap()
-{
-  myCenter=new google.maps.LatLng(41.878114, -87.629798);
-  var mapOptions= {
-    center:myCenter,
-    zoom:12, scrollwheel: false, draggable: false,
-    mapTypeId:google.maps.MapTypeId.ROADMAP
-  };
-  var map=new google.maps.Map(document.getElementById("googleMap"),mapOptions);
 
-  var marker = new google.maps.Marker({
-    position: myCenter,
-  });
-  marker.setMap(map);
-}
+<div class="credits">
+    <div class="container">
+        <div class="copyright">
+            <a href="https://github.com/Lednerb" target="_blank">&copy; 2017 by Lednerb </a>
+        </div>
+        <div class="author">
+            <a href="https://github.com/Lednerb/bilberry-hugo-theme" target="_blank">Bilberry Hugo Theme</a>
+        </div>
+    </div>
+</div>
 
-// Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
 
-// Change style of navbar on scroll
-window.onscroll = function() {myFunction()};
-function myFunction() {
-    var navbar = document.getElementById("myNavbar");
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
-    } else {
-        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
-    }
-}
+        
 
-// Used to toggle the menu on small screens when clicking on the menu button
-function toggleFunction() {
-    var x = document.getElementById("navDemo");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else {
-        x.className = x.className.replace(" w3-show", "");
-    }
-}
+        
+        
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [['$','$'], ['\\(','\\)']]}
+        });
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
-<!--
-To use this code on your website, get a free API key from Google.
-Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
--->
 
-</body>
+        
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment-with-locales.min.js" integrity="sha256-TbOIe++NbC9P3KTtUMJ5wcROlBdnRqrPleLdpPg3xxE=" crossorigin="anonymous" type="application/javascript"></script>
+        <script src="https://jwong8314.github.io/alittlebitofboth/blog.html/dist/theme.js" type="application/javascript"></script>
+
+        
+            
+        
+
+        <script>
+            $(document).ready(function() {
+                $(".moment").each(function() {
+                    $(this).text(
+                        moment( $(this).text() )
+                            .locale( "en" )
+                            .format('LL')
+                    );
+                });
+
+                $(".footnote-return sup").html("[return]")
+            })
+        </script>
+
+        
+            
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.29.0/autocomplete.jquery.min.js" integrity="sha256-qUqrH6CxKeU+3ClSSiq0GGnYjoKmfLhNO4tFoTCay5c=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/algoliasearch/3.24.5/algoliasearch.min.js" integrity="sha256-vUvLcn3X0cXhote4PNwW6d+fzjJR0hoD+yGFeVaElew=" crossorigin="anonymous"></script>
+
+<script>
+    var client = algoliasearch("Y2C4RWMPXW", "50ea7f8c41c0ad233926e0be2b769ed1");
+    var index = client.initIndex("default-content");
+
+    $('#search').autocomplete({ hint: false, autoselect: true, debug: false },
+      [
+        {
+          source: $.fn.autocomplete.sources.hits(index, { hitsPerPage: 5 }),
+          displayKey: function(suggestion) {
+            return suggestion.title || suggestion.author
+          },
+          templates: {
+            suggestion: function(suggestion) {
+                return "<span class='entry " + suggestion.type + "'>"
+                      + "<span class='title'>" + suggestion.title + "</span>"
+                      + "<span class='fa fa-fw " + suggestion.iconClass + "'></span>"
+                  + "</span>"
+                ;
+            },
+            empty: function() {
+              return "<span class='empty'>Nothing found.</span>"
+            },
+            footer: function() {
+              return '<div class="branding">Powered by <img src="https://www.algolia.com/static_assets/images/press/downloads/algolia-logo-light.svg" /></div>'
+            }
+
+          },
+        }
+      ])
+      .on('autocomplete:selected', function(event, suggestion, dataset) {
+        window.location = (suggestion.url);
+      })
+      .keypress(function (event, suggestion) {
+        if (event.which == 13) {
+          window.location = (suggestion.url);
+        }
+      });
+</script>
+
+        
+
+
+    </body>
 </html>
