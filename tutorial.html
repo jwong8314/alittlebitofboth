@@ -1,0 +1,284 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Tutorial &#8212; tflon 0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Chemistry" href="chem.html" />
+    <link rel="prev" title="Welcome to tflon’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="tutorial">
+<h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="setup">
+<h2>Setup:<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<p>Clone the latest tflon repository and ensure the following requirements:
+-pandas
+-tensorflow
+-
+Before using tflon, we use the following lines to import the necessary dependancies</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">import</span> <span class="nn">tflon</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-dataset">
+<h2>Example Dataset:<a class="headerlink" href="#example-dataset" title="Permalink to this headline">¶</a></h2>
+<p>For the purposes of this tutorial, we will be using the Wisconsin Diagnostic Breast Cancer (WDBC) dataset found at <a class="reference external" href="https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/wdbc.data">https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/wdbc.data</a></p>
+<dl class="docutils">
+<dt>The data has 30 real valued features including</dt>
+<dd><ol class="first last loweralpha simple">
+<li>radius (mean of distances from center to points on the perimeter)</li>
+<li>texture (standard deviation of gray-scale values)</li>
+<li>perimeter</li>
+<li>area</li>
+<li>smoothness (local variation in radius lengths)</li>
+<li>compactness (perimeter^2 / area - 1.0)</li>
+<li>concavity (severity of concave portions of the contour)</li>
+<li>concave points (number of concave portions of the contour)</li>
+<li>symmetry</li>
+<li>fractal dimension (“coastline approximation” - 1)</li>
+</ol>
+</dd>
+</dl>
+<p>We seek to construct a classifier to determine if the biometrics correspond to a malignant (212) or benign (357) using the 569 samples.</p>
+</div>
+<div class="section" id="pre-processing">
+<h2>Pre-Processing:<a class="headerlink" href="#pre-processing" title="Permalink to this headline">¶</a></h2>
+<p>The data is in the form of comma separated values(csv): ID,Malignant/Benign,Features. Using pandas, we extract ‘targ’ with a binary encoding 1 for malignant and 0 otherwise. And, ‘desc’ for the features.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./wdbc.data&quot;</span> <span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">transform</span><span class="p">)</span> 
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="n">targ</span><span class="p">,</span> <span class="n">desc</span> <span class="o">=</span> <span class="n">tflon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">([</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>where transform is defined as:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="s1">&#39;M&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>Then, we create a tflon feed which essentially stores the ‘targ’ and ‘desc’ as a dictionary.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>    <span class="n">feed</span> <span class="o">=</span> <span class="n">tflon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">TableFeed</span><span class="p">({</span><span class="s1">&#39;desc&#39;</span><span class="p">:</span><span class="n">desc</span><span class="p">,</span> <span class="s1">&#39;targ&#39;</span><span class="p">:</span><span class="n">targ</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="defining-a-model">
+<h2>Defining a Model:<a class="headerlink" href="#defining-a-model" title="Permalink to this headline">¶</a></h2>
+<p>To define a new model, we create a new class.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">NeuralNet</span><span class="p">(</span><span class="n">tflon</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_model</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">I</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_input</span><span class="p">(</span><span class="s1">&#39;desc&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="mi">30</span><span class="p">])</span>
+        <span class="n">T</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_target</span><span class="p">(</span><span class="s1">&#39;targ&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+        <span class="n">net</span> <span class="o">=</span> <span class="n">tflon</span><span class="o">.</span><span class="n">toolkit</span><span class="o">.</span><span class="n">WindowInput</span><span class="p">()</span> <span class="o">|</span>\
+              <span class="n">tflon</span><span class="o">.</span><span class="n">toolkit</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">tanh</span><span class="p">)</span> <span class="o">|</span>\
+              <span class="n">tflon</span><span class="o">.</span><span class="n">toolkit</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">tanh</span><span class="p">)</span> <span class="o">|</span>\
+              <span class="n">tflon</span><span class="o">.</span><span class="n">toolkit</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">L</span> <span class="o">=</span> <span class="n">net</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_output</span><span class="p">(</span> <span class="s1">&#39;pred&#39;</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_loss</span><span class="p">(</span> <span class="s1">&#39;xent&#39;</span><span class="p">,</span> <span class="n">tflon</span><span class="o">.</span><span class="n">toolkit</span><span class="o">.</span><span class="n">xent_uniform_sum</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_loss</span><span class="p">(</span> <span class="s1">&#39;l2&#39;</span><span class="p">,</span> <span class="n">tflon</span><span class="o">.</span><span class="n">toolkit</span><span class="o">.</span><span class="n">l2_penalty</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">weights</span><span class="p">)</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_metric</span><span class="p">(</span> <span class="s1">&#39;auc&#39;</span><span class="p">,</span> <span class="n">tflon</span><span class="o">.</span><span class="n">toolkit</span><span class="o">.</span><span class="n">auc</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>For this example, we have a dense layer of 5 neurons stacked on 20 neurons all with tanh activation function. Also, we use AUC to eveluate the model.</p>
+</div>
+<div class="section" id="train-the-model">
+<h2>Train the Model:<a class="headerlink" href="#train-the-model" title="Permalink to this headline">¶</a></h2>
+<p>To train the model, we instantiate the model:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>    <span class="n">NN</span> <span class="o">=</span> <span class="n">NeuralNet</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Then, define training parameters, in our case 1000 iterations:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>    <span class="n">trainer</span> <span class="o">=</span> <span class="n">tflon</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">OpenOptTrainer</span><span class="p">(</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And, finally train it:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>        <span class="n">NN</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span> <span class="n">feed</span><span class="p">,</span> <span class="n">trainer</span><span class="p">,</span> <span class="n">restarts</span><span class="o">=</span><span class="mi">2</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>After each training we can assess the neural net with AUC:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>        <span class="n">metrics</span> <span class="o">=</span> <span class="n">NN</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">feed</span><span class="p">)</span>
+        <span class="nb">print</span> <span class="s2">&quot;AUC:&quot;</span><span class="p">,</span> <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;auc&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="putting-it-all-together">
+<h2>Putting it all together:<a class="headerlink" href="#putting-it-all-together" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">import</span> <span class="nn">tflon</span>
+
+<span class="k">class</span> <span class="nc">NeuralNet</span><span class="p">(</span><span class="n">tflon</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_model</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">I</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_input</span><span class="p">(</span><span class="s1">&#39;desc&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="mi">30</span><span class="p">])</span>
+        <span class="n">T</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_target</span><span class="p">(</span><span class="s1">&#39;targ&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+        <span class="n">net</span> <span class="o">=</span> <span class="n">tflon</span><span class="o">.</span><span class="n">toolkit</span><span class="o">.</span><span class="n">WindowInput</span><span class="p">()</span> <span class="o">|</span>\
+              <span class="n">tflon</span><span class="o">.</span><span class="n">toolkit</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">tanh</span><span class="p">)</span> <span class="o">|</span>\
+              <span class="n">tflon</span><span class="o">.</span><span class="n">toolkit</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">tanh</span><span class="p">)</span> <span class="o">|</span>\
+              <span class="n">tflon</span><span class="o">.</span><span class="n">toolkit</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">L</span> <span class="o">=</span> <span class="n">net</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_output</span><span class="p">(</span> <span class="s1">&#39;pred&#39;</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_loss</span><span class="p">(</span> <span class="s1">&#39;xent&#39;</span><span class="p">,</span> <span class="n">tflon</span><span class="o">.</span><span class="n">toolkit</span><span class="o">.</span><span class="n">xent_uniform_sum</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_loss</span><span class="p">(</span> <span class="s1">&#39;l2&#39;</span><span class="p">,</span> <span class="n">tflon</span><span class="o">.</span><span class="n">toolkit</span><span class="o">.</span><span class="n">l2_penalty</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">weights</span><span class="p">)</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_metric</span><span class="p">(</span> <span class="s1">&#39;auc&#39;</span><span class="p">,</span> <span class="n">tflon</span><span class="o">.</span><span class="n">toolkit</span><span class="o">.</span><span class="n">auc</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span> <span class="p">)</span>
+<span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="s1">&#39;M&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+<span class="k">if</span> <span class="vm">__name__</span><span class="o">==</span><span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+		
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./wdbc.data&quot;</span> <span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">transform</span><span class="p">)</span> 
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="n">targ</span><span class="p">,</span> <span class="n">desc</span> <span class="o">=</span> <span class="n">tflon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">([</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">feed</span> <span class="o">=</span> <span class="n">tflon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">TableFeed</span><span class="p">({</span><span class="s1">&#39;desc&#39;</span><span class="p">:</span><span class="n">desc</span><span class="p">,</span> <span class="s1">&#39;targ&#39;</span><span class="p">:</span><span class="n">targ</span><span class="p">})</span>
+    <span class="n">NN</span> <span class="o">=</span> <span class="n">NeuralNet</span><span class="p">()</span>
+    
+    <span class="n">trainer</span> <span class="o">=</span> <span class="n">tflon</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">OpenOptTrainer</span><span class="p">(</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+    
+    <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">():</span>
+        <span class="n">NN</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span> <span class="n">feed</span><span class="p">,</span> <span class="n">trainer</span><span class="p">,</span> <span class="n">restarts</span><span class="o">=</span><span class="mi">2</span> <span class="p">)</span>
+        <span class="n">metrics</span> <span class="o">=</span> <span class="n">NN</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">feed</span><span class="p">)</span>
+        <span class="nb">print</span> <span class="s2">&quot;AUC:&quot;</span><span class="p">,</span> <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;auc&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="expected-output">
+<h2>Expected output:<a class="headerlink" href="#expected-output" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">2018</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">03</span> <span class="mi">01</span><span class="p">:</span><span class="mi">37</span><span class="p">:</span><span class="mf">04.419236</span><span class="p">:</span> <span class="n">I</span> <span class="n">tensorflow</span><span class="o">/</span><span class="n">core</span><span class="o">/</span><span class="n">platform</span><span class="o">/</span><span class="n">cpu_feature_guard</span><span class="o">.</span><span class="n">cc</span><span class="p">:</span><span class="mi">140</span><span class="p">]</span> <span class="n">Your</span> <span class="n">CPU</span> <span class="n">supports</span> <span class="n">instructions</span> <span class="n">that</span> <span class="n">this</span> <span class="n">TensorFlow</span> <span class="n">binary</span> <span class="n">was</span> <span class="ow">not</span> <span class="n">compiled</span> <span class="n">to</span> <span class="n">use</span><span class="p">:</span> <span class="n">FMA</span>
+<span class="mi">2018</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">03</span> <span class="mi">01</span><span class="p">:</span><span class="mi">37</span><span class="p">:</span><span class="mf">05.174035</span><span class="p">:</span> <span class="n">I</span> <span class="n">Step</span>  <span class="mi">20</span> <span class="o">/</span>  <span class="mi">100</span><span class="p">,</span> <span class="n">Q</span><span class="p">:</span>  <span class="mi">100</span><span class="p">,</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">7.682e+01</span>
+<span class="mi">2018</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">03</span> <span class="mi">01</span><span class="p">:</span><span class="mi">37</span><span class="p">:</span><span class="mf">05.305851</span><span class="p">:</span> <span class="n">I</span> <span class="n">Step</span>  <span class="mi">40</span> <span class="o">/</span>  <span class="mi">100</span><span class="p">,</span> <span class="n">Q</span><span class="p">:</span>  <span class="mi">100</span><span class="p">,</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">6.118e+01</span>
+<span class="mi">2018</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">03</span> <span class="mi">01</span><span class="p">:</span><span class="mi">37</span><span class="p">:</span><span class="mf">05.436552</span><span class="p">:</span> <span class="n">I</span> <span class="n">Step</span>  <span class="mi">60</span> <span class="o">/</span>  <span class="mi">100</span><span class="p">,</span> <span class="n">Q</span><span class="p">:</span>  <span class="mi">100</span><span class="p">,</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">6.003e+01</span>
+<span class="mi">2018</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">03</span> <span class="mi">01</span><span class="p">:</span><span class="mi">37</span><span class="p">:</span><span class="mf">05.576271</span><span class="p">:</span> <span class="n">I</span> <span class="n">Step</span>  <span class="mi">80</span> <span class="o">/</span>  <span class="mi">100</span><span class="p">,</span> <span class="n">Q</span><span class="p">:</span>  <span class="mi">100</span><span class="p">,</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">5.961e+01</span>
+<span class="mi">2018</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">03</span> <span class="mi">01</span><span class="p">:</span><span class="mi">37</span><span class="p">:</span><span class="mf">05.724240</span><span class="p">:</span> <span class="n">I</span> <span class="n">Step</span>  <span class="mi">100</span> <span class="o">/</span>  <span class="mi">100</span><span class="p">,</span> <span class="n">Q</span><span class="p">:</span>  <span class="mi">100</span><span class="p">,</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">5.957e+01</span>
+<span class="mi">2018</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">03</span> <span class="mi">01</span><span class="p">:</span><span class="mi">37</span><span class="p">:</span><span class="mf">05.750600</span><span class="p">:</span> <span class="n">I</span> <span class="n">Step</span>   <span class="mi">1</span> <span class="o">/</span>  <span class="mi">100</span><span class="p">,</span> <span class="n">Q</span><span class="p">:</span>  <span class="mi">100</span><span class="p">,</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">4.212e+02</span>
+<span class="mi">2018</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">03</span> <span class="mi">01</span><span class="p">:</span><span class="mi">37</span><span class="p">:</span><span class="mf">05.888414</span><span class="p">:</span> <span class="n">I</span> <span class="n">Step</span>  <span class="mi">20</span> <span class="o">/</span>  <span class="mi">100</span><span class="p">,</span> <span class="n">Q</span><span class="p">:</span>  <span class="mi">100</span><span class="p">,</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">6.978e+01</span>
+<span class="mi">2018</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">03</span> <span class="mi">01</span><span class="p">:</span><span class="mi">37</span><span class="p">:</span><span class="mf">06.021152</span><span class="p">:</span> <span class="n">I</span> <span class="n">Step</span>  <span class="mi">40</span> <span class="o">/</span>  <span class="mi">100</span><span class="p">,</span> <span class="n">Q</span><span class="p">:</span>  <span class="mi">100</span><span class="p">,</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">6.032e+01</span>
+<span class="mi">2018</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">03</span> <span class="mi">01</span><span class="p">:</span><span class="mi">37</span><span class="p">:</span><span class="mf">06.144326</span><span class="p">:</span> <span class="n">I</span> <span class="n">Step</span>  <span class="mi">60</span> <span class="o">/</span>  <span class="mi">100</span><span class="p">,</span> <span class="n">Q</span><span class="p">:</span>  <span class="mi">100</span><span class="p">,</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">5.990e+01</span>
+<span class="mi">2018</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">03</span> <span class="mi">01</span><span class="p">:</span><span class="mi">37</span><span class="p">:</span><span class="mf">06.277404</span><span class="p">:</span> <span class="n">I</span> <span class="n">Step</span>  <span class="mi">80</span> <span class="o">/</span>  <span class="mi">100</span><span class="p">,</span> <span class="n">Q</span><span class="p">:</span>  <span class="mi">100</span><span class="p">,</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">5.964e+01</span>
+<span class="mi">2018</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">03</span> <span class="mi">01</span><span class="p">:</span><span class="mi">37</span><span class="p">:</span><span class="mf">06.406218</span><span class="p">:</span> <span class="n">I</span> <span class="n">Step</span>  <span class="mi">100</span> <span class="o">/</span>  <span class="mi">100</span><span class="p">,</span> <span class="n">Q</span><span class="p">:</span>  <span class="mi">100</span><span class="p">,</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">5.961e+01</span>
+<span class="mi">2018</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">03</span> <span class="mi">01</span><span class="p">:</span><span class="mi">37</span><span class="p">:</span><span class="mf">06.431302</span><span class="p">:</span> <span class="n">I</span> <span class="n">Found</span> <span class="n">a</span> <span class="n">solution</span> <span class="k">with</span> <span class="n">loss</span> <span class="mf">5.96e+01</span>
+<span class="n">AUC</span><span class="p">:</span> <span class="mf">0.99696106</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">tflon</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setup">Setup:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-dataset">Example Dataset:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pre-processing">Pre-Processing:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#defining-a-model">Defining a Model:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#train-the-model">Train the Model:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#putting-it-all-together">Putting it all together:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#expected-output">Expected output:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chem.html">Chemistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">Data pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distributed.html">Distributed API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Usage Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graph.html">Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="toolkit.html">Toolkit</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to tflon’s documentation!</a></li>
+      <li>Next: <a href="chem.html" title="next chapter">Chemistry</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Matthew Matlock.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/tutorial.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
