@@ -5,7 +5,7 @@
     <link>https://jwong8314.github.io/alittlebitofboth/categories/</link>
     <description>Recent content in Categories on Ordinary Beauty</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 01 Jan 2017 16:23:40 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 01 Jan 2015 16:23:40 +0100</lastBuildDate>
     
 	<atom:link href="https://jwong8314.github.io/alittlebitofboth/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -13,9 +13,18 @@
     <item>
       <title>Bach</title>
       <link>https://jwong8314.github.io/alittlebitofboth/categories/bach/</link>
-      <pubDate>Sun, 01 Jan 2017 16:23:40 +0100</pubDate>
+      <pubDate>Thu, 01 Jan 2015 16:23:40 +0100</pubDate>
       
       <guid>https://jwong8314.github.io/alittlebitofboth/categories/bach/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ben Platt</title>
+      <link>https://jwong8314.github.io/alittlebitofboth/categories/ben-platt/</link>
+      <pubDate>Sun, 01 Jan 2017 16:23:40 +0100</pubDate>
+      
+      <guid>https://jwong8314.github.io/alittlebitofboth/categories/ben-platt/</guid>
       <description></description>
     </item>
     
@@ -25,6 +34,15 @@
       <pubDate>Wed, 01 Jan 1845 16:23:40 +0100</pubDate>
       
       <guid>https://jwong8314.github.io/alittlebitofboth/categories/cello/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Depression</title>
+      <link>https://jwong8314.github.io/alittlebitofboth/categories/depression/</link>
+      <pubDate>Sun, 01 Jan 2017 16:23:40 +0100</pubDate>
+      
+      <guid>https://jwong8314.github.io/alittlebitofboth/categories/depression/</guid>
       <description></description>
     </item>
     
@@ -43,6 +61,15 @@
       <pubDate>Thu, 01 Feb 2018 16:23:40 +0100</pubDate>
       
       <guid>https://jwong8314.github.io/alittlebitofboth/categories/music/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Musical Theater</title>
+      <link>https://jwong8314.github.io/alittlebitofboth/categories/musical-theater/</link>
+      <pubDate>Sun, 01 Jan 2017 16:23:40 +0100</pubDate>
+      
+      <guid>https://jwong8314.github.io/alittlebitofboth/categories/musical-theater/</guid>
       <description></description>
     </item>
     
@@ -67,9 +94,18 @@
     <item>
       <title>Violin</title>
       <link>https://jwong8314.github.io/alittlebitofboth/categories/violin/</link>
-      <pubDate>Sun, 01 Jan 2017 16:23:40 +0100</pubDate>
+      <pubDate>Thu, 01 Jan 2015 16:23:40 +0100</pubDate>
       
       <guid>https://jwong8314.github.io/alittlebitofboth/categories/violin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vocal</title>
+      <link>https://jwong8314.github.io/alittlebitofboth/categories/vocal/</link>
+      <pubDate>Sun, 01 Jan 2017 16:23:40 +0100</pubDate>
+      
+      <guid>https://jwong8314.github.io/alittlebitofboth/categories/vocal/</guid>
       <description></description>
     </item>
     
